@@ -146,7 +146,7 @@
 <p>The <code>forest</code> process has a set of configurable values which determine the behavior of the node. All values can be set through process flags or through a configuration file. If a configuration is provided through the flag and the configuation file, the flag value will be given preference.</p>
 <h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
 <p>When starting <code>forest</code> you can configure the behavior of the process through the use of the following flags:</p>
-<table><thead><tr><th>Flag</th><th>Value</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Flag</th><th>Value</th><th>Description</th></tr></thead><tbody>
 <tr><td>--config</td><td>OS File Path</td><td>Path to TOML file containing configuration</td></tr>
 <tr><td>--genesis</td><td>OS File Path</td><td>CAR file with genesis state</td></tr>
 <tr><td>--rpc</td><td>Boolean</td><td>Toggles the RPC API on</td></tr>
@@ -163,6 +163,7 @@
 <tr><td>--target-peer-count</td><td>Integer</td><td>Amount of peers the node should maintain a connection with</td></tr>
 <tr><td>--encrypt-keystore</td><td>Boolean</td><td>Controls whether the keystore is encrypted</td></tr>
 </tbody></table>
+</div>
 <h2 id="configuration-file"><a class="header" href="#configuration-file">Configuration File</a></h2>
 <p>Alternatively, when starting <code>forest</code> you can define a TOML configuration file and provide it to the process with the <code>--config</code> flag or through the <code>FOREST_CONFIG_PATH</code> environment variable.</p>
 <p>The following is an sample configuration file: </p>
