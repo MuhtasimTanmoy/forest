@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Configuration</title>
+        <title>Trouble Shooting</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="basic_usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="configuration.html" class="active"><strong aria-hidden="true">3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="trouble_shooting.html"><strong aria-hidden="true">4.</strong> Trouble Shooting</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="basic_usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="trouble_shooting.html" class="active"><strong aria-hidden="true">4.</strong> Trouble Shooting</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">5.</strong> Glossary</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,56 +142,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
-<p>The <code>forest</code> process has a set of configurable values which determine the behavior of the node. All values can be set through process flags or through a configuration file. If a configuration is provided through the flag and the configuation file, the flag value will be given preference.</p>
-<h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
-<p>When starting <code>forest</code> you can configure the behavior of the process through the use of the following flags:</p>
-<div class="table-wrapper"><table><thead><tr><th>Flag</th><th>Value</th><th>Description</th></tr></thead><tbody>
-<tr><td>--config</td><td>OS File Path</td><td>Path to TOML file containing configuration</td></tr>
-<tr><td>--genesis</td><td>OS File Path</td><td>CAR file with genesis state</td></tr>
-<tr><td>--rpc</td><td>Boolean</td><td>Toggles the RPC API on</td></tr>
-<tr><td>--port</td><td>Integer</td><td>Port for JSON-RPC communication</td></tr>
-<tr><td>--token</td><td>String</td><td>Client JWT token to use for JSON-RPC authentication</td></tr>
-<tr><td>--metrics-port</td><td>Integer</td><td>Port used for metrics collection server</td></tr>
-<tr><td>--kademlia</td><td>Boolean</td><td>Determines whether Kademilia is allowed</td></tr>
-<tr><td>--mdns</td><td>Boolean</td><td>Determines whether MDNS is allowed</td></tr>
-<tr><td>--import-snapshot</td><td>OS File Path</td><td>Path to snapshot CAR file</td></tr>
-<tr><td>--import-chain</td><td>OS File Path</td><td>Path to chain CAR file</td></tr>
-<tr><td>--skip-load</td><td>Boolean</td><td>Skips loading CAR File and uses header to index chain</td></tr>
-<tr><td>--req-window</td><td>Integer</td><td>Sets the number of tipsets requested over chain exchange</td></tr>
-<tr><td>--tipset-sample-size</td><td>Integer</td><td>Number of tipsets to include in the sample which determines the network head during synchronization</td></tr>
-<tr><td>--target-peer-count</td><td>Integer</td><td>Amount of peers the node should maintain a connection with</td></tr>
-<tr><td>--encrypt-keystore</td><td>Boolean</td><td>Controls whether the keystore is encrypted</td></tr>
-</tbody></table>
-</div>
-<h2 id="configuration-file"><a class="header" href="#configuration-file">Configuration File</a></h2>
-<p>Alternatively, when starting <code>forest</code> you can define a TOML configuration file and provide it to the process with the <code>--config</code> flag or through the <code>FOREST_CONFIG_PATH</code> environment variable.</p>
-<p>The following is an sample configuration file: </p>
-<pre><code class="language-toml">genesis = &quot;/path/to/genesis/file&quot;
-rpc = true
-port = 1234
-token = &quot;0394j3094jg0394jg34g&quot;
-metrics-port = 2345
-kademlia = true
-mdns = true
-import-snapshot = /path/to/snapshot/file
-import-chain = /path/to/chain/file
-skip-load = false
-req-window = 100
-tipset-sample-size = 10
-target-peer-count = 100
-encrypt-keystore = false
-</code></pre>
+                        <h1 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble Shooting</a></h1>
+<h2 id="common-issues"><a class="header" href="#common-issues">Common Issues</a></h2>
+<h4 id="file-descriptor-limits"><a class="header" href="#file-descriptor-limits">File Descriptor Limits</a></h4>
+<p>To properly manage the Filecoin state tree with RocksDB, Forest requires a custom allocation of file descriptors. Please set the process file descriptor limits to <code>1048576</code> to avoid stalling the node.</p>
+<p>For MacOS and Linux distributions, this can be done by using the <code>usize</code> command. Using this command will set it for the current session. On MacOS, setting the limit too high will default it to a max of 
+<code>12288</code>. There are many guides online to override this along with specific Linux guides to make the new max persistent.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="basic_usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="configuration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="trouble_shooting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="glossary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +167,11 @@ encrypt-keystore = false
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="basic_usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="configuration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="trouble_shooting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="glossary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

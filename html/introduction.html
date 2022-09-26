@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Trouble Shooting</title>
+        <title>Introduction</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="basic_usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="trouble_shooting.html" class="active"><strong aria-hidden="true">4.</strong> Trouble Shooting</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="basic_usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">3.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="trouble_shooting.html"><strong aria-hidden="true">4.</strong> Trouble Shooting</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">5.</strong> Glossary</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,21 +142,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble Shooting</a></h1>
-<h2 id="common-issues"><a class="header" href="#common-issues">Common Issues</a></h2>
-<h4 id="file-descriptor-limits"><a class="header" href="#file-descriptor-limits">File Descriptor Limits</a></h4>
-<p>To properly manage the Filecoin state tree with RocksDB, Forest requires a custom allocation of file descriptors. Please set the process file descriptor limits to <code>1048576</code> to avoid stalling the node.</p>
-<p>For MacOS and Linux distributions, this can be done by using the <code>usize</code> command. Using this command will set it for the current session. On MacOS, setting the limit too high will default it to a max of 
-<code>12288</code>. There are many guides online to override this along with specific Linux guides to make the new max persistent.</p>
+                        <p align="center">
+    <img width="380" height="269" src="./img/forest_logo.png">
+</p>
+<p><a href="https://app.circleci.com/pipelines/github/ChainSafe/forest?branch=main"><img alt="build status" src="https://img.shields.io/circleci/build/gh/ChainSafe/forest/main?style=for-the-badge" height="20"></a>
+<a href="https://github.com/ChainSafe/forest/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ChainSafe/forest?style=for-the-badge" height="20"></a>
+<a href="https://opensource.org/licenses/Apache-2.0"><img alt="Apache License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge" height="20"></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" height="20"></a>
+<a href="https://twitter.com/ChainSafeth"><img alt="Twitter" src="https://img.shields.io/twitter/follow/ChainSafeth.svg?style=for-the-badge&label=Twitter&color=1DA1F2" height="20"></a>
+<a href="https://discord.gg/Q6A3YA2"><img alt="Discord" src="https://img.shields.io/discord/593655374469660673.svg?style=for-the-badge&label=Discord&logo=discord" height="20"></a></p>
+<p>Forest is an implementation of <a href="https://filecoin.io/">Filecoin</a> written in Rust.
+The implementation takes a modular approach to building a full Filecoin node in two parts — (i) building Filecoin’s security critical systems in Rust from the <a href="https://filecoin-project.github.io/specs/">Filecoin Protocol Specification</a>, specifically the virtual machine, blockchain, and node system, and (ii) integrating functional components for storage mining and storage &amp; retrieval markets to compose a fully functional Filecoin node implementation.</p>
+<h2 id="functionality"><a class="header" href="#functionality">Functionality</a></h2>
+<ul>
+<li>Filecoin State Tree Synchronization</li>
+<li>Filecoin JSON-RPC Server</li>
+<li>Ergonomic Message Pool</li>
+<li>Wallet CLI</li>
+<li>Process Metrics &amp; Monitoring</li>
+</ul>
+<h2 id="disclaimer"><a class="header" href="#disclaimer">Disclaimer</a></h2>
+<p>The Forest implementation of the Filecoin protocol is alpha software which should not yet be integrated into production workflows. The team is working to provide reliable, secure, and efficient interfaces to the Filecoin ecosystem. If you would like to chat, please reach out over Discord on the ChainSafe server linked above.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="configuration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
 
+                            <a rel="next" href="basic_usage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -164,10 +179,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="configuration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
 
+                    <a rel="next" href="basic_usage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
